@@ -1,0 +1,33 @@
+# Виртуальное окружение
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Тесты / покрытие
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Секреты
+.env
+.env.local
+
+# ОС
+.DS_Store
+Thumbs.db
+
+# Данные (пока — файл JSON, позже — БД)
+*.db
+*.sqlite3
+data/
