@@ -19,3 +19,10 @@ def create(task_create: TaskCreate) -> TaskResponse:
     return task
 
 
+def get_by_id(task_id: int) -> TaskResponse | None:
+
+    for i in _tasks:
+        if i.id == task_id:
+            return i
+    return None
+
