@@ -1,4 +1,4 @@
-from app.models import TaskCreate, TaskResponse
+from app.models import TaskCreate, TaskResponse, TaskUpdate
 
 
 
@@ -26,3 +26,18 @@ def get_by_id(task_id: int) -> TaskResponse | None:
             return i
     return None
 
+def update(task_id: int, task_update: TaskUpdate) -> TaskResponse | None:
+
+    for i in _tasks:
+        if i.id == task_id:
+            if task_update.title is not None:
+                i.title = task_update.title
+
+            if task_update.description is not None:
+                i.description = task_update.description
+
+            if task_update.completed is not None:
+                i.completed = task_update.completed
+
+            return i
+    return None

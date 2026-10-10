@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from app.models import TaskCreate,TaskResponse
+from app.models import TaskCreate,TaskResponse,TaskUpdate
 from app import storage
 
 
@@ -23,4 +23,11 @@ def get_task(task_id:int):
     result = storage.get_by_id(task_id)
     if result is None:
         raise HTTPException(status_code=404,detail="Task not found")
+    return result
+
+@app.patch("/tasks/{task_id}", response_model=TaskResponse)
+def update_task(task_id:int, task_update:TaskUpdate):
+    result = storage.update(task_id, task_update)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Task not found")
     return result
