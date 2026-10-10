@@ -41,3 +41,11 @@ def update(task_id: int, task_update: TaskUpdate) -> TaskResponse | None:
 
             return i
     return None
+
+
+def delete(task_id: int) -> TaskResponse | None:
+
+    for idx,task in enumerate(_tasks):
+        if task.id == task_id:
+            return _tasks.pop(idx)
+    return None
